@@ -32,13 +32,13 @@
 
         const Weather = () => {
 
-            const [selectState, setSelectState] = useState('5');          
+            const [selectState, setSelectState] = useState('5');
 
-            const showData = () => {;
+            const showData = () => {
                 fetch("https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-73813A86-3EF5-4E6E-A811-B26E470CF6B6&locationName=")
                     .then((response) => response.json())
                     .then((data) => {
-                        console.log(data);
+                        // console.log(data);
                         const locationData = data.records.location[selectState]
                         const StyleData = locationData.weatherElement[0].time[0]
                         const Rain = locationData.weatherElement[1].time[0]
@@ -72,8 +72,8 @@
                 <div className="weather_item">
                     {/*<選單>*/}
                     <div className="LocationSelect">
-                        <select name="" id="" value={selectState} onChange={e => setSelectState(e.target.value)}> 
-                            {/*<option value="" disabled>--縣市--</option>*/}                    
+                        <select name="select" id="select" value={selectState} onChange={e => setSelectState(e.target.value)}>
+                            {/*<option value="" disabled>--縣市--</option>*/}
                             <option value="5">臺北市</option>
                             <option value="1">新北市</option>
                             <option value="13">桃園市</option>
